@@ -1,5 +1,5 @@
 import React from 'react';
-import { EggFried, Phone, Mail, MapPin } from 'lucide-react';
+import { EggFried, Mail, MapPin } from 'lucide-react';
 import { contactInfo } from '../../data/contacts';
 
 const Footer: React.FC = () => {

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { contactInfo } from '../../data/contacts';
-import { MapPin, Phone, Mail, Send, CheckCircle2 } from 'lucide-react';
+import { MapPin, Mail, Send, CheckCircle2 } from 'lucide-react';
 
 const schema = yup.object().shape({
     name: yup.string().required('الاسم مطلوب').min(2, 'الاسم يجب أن يكون أكثر من حرفين'),
