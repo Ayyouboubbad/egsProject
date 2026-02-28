@@ -17,7 +17,7 @@ const Header: React.FC = () => {
         { name: 'الرئيسية', href: '#home' },
         { name: 'خدامتنا', href: '#services' },
         { name: 'هـَـلْ تَعْــلَمْ ؟', href: '#did-you-know' },
-        { name: 'وصفات', href: '#recipes' },
+        { name: 'مراحل الإنتاج', href: '#production' },
         { name: 'ضيعتكم من الداخل', href: '#farm-tour' },
         { name: 'Gallery', href: '#gallery' },
         { name: 'للاتصال بنا', href: '#contact' },

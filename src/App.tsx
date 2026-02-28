@@ -3,7 +3,7 @@ import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import Services from './components/sections/Services';
 import DidYouKnow from './components/sections/DidYouKnow';
-import Recipes from './components/sections/Recipes';
+import ProductionProcess from './components/sections/ProductionProcess';
 import FarmTour from './components/sections/FarmTour';
 import Gallery from './components/sections/Gallery';
 import Contact from './components/sections/Contact';
@@ -16,7 +16,7 @@ function App() {
         <Hero />
         <Services />
         <DidYouKnow />
-        <Recipes />
+        <ProductionProcess />
         <FarmTour />
         <Gallery />
         <Contact />
