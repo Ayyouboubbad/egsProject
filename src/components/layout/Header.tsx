@@ -15,7 +15,8 @@ const Header: React.FC = () => {
 
     const navLinks = [
         { name: 'الرئيسية', href: '#home' },
-        { name: 'المنتجات', href: '#products' },
+        { name: 'حاسبة التوفير', href: '#calculator' },
+        { name: 'المنتجات الجملة', href: '#products' },
         { name: 'خدامتنا', href: '#services' },
         { name: 'مراحل الإنتاج', href: '#production' },
         { name: 'Gallery', href: '#gallery' },

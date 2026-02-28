@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { contactInfo } from '../../data/contacts';
 import { MapPin, Mail, Send, CheckCircle2, AlertCircle, Phone } from 'lucide-react';
+import { generateEmailTemplate } from '../../utils/emailTemplate';
 
 const schema = yup.object().shape({
     name: yup.string().required('الاسم مطلوب').min(2, 'الاسم يجب أن يكون أكثر من حرفين'),
@@ -27,21 +28,26 @@ const Contact: React.FC = () => {
 
     const onSubmit = async (data: FormData) => {
         try {
-            setSubmitStatus('idle');
-            const response = await fetch("https://formspree.io/f/mnjbyqql", {
+            setSubmitStatus('idle'); // Starting submission
+
+            // Generate the beautifully formatted plain text template
+            const messageContent = generateEmailTemplate(data);
+
+            const accessKey = "c20e0ac9-b527-4fc6-a51c-a8d03d7f11df";
+
+            // Using Web3Forms for ultra-reliable plain text delivery
+            const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
                 },
                 body: JSON.stringify({
-                    "الاسم": data.name,
-                    "البريد الإلكتروني": data.email,
-                    "رقم الهاتف": data.phone,
-                    "الموضوع": data.subject,
-                    "الرسالة": data.message,
-                    "_replyto": data.email,
-                    "_subject": `رسالة من الموقع: ${data.subject}`
+                    access_key: accessKey,
+                    subject: `🚨 رسالة جديدة من الموقع: ${data.subject} - ${data.name}`,
+                    from_name: data.name,
+                    message: messageContent,
+                    replyto: data.email
                 })
             });
 
@@ -52,6 +58,7 @@ const Contact: React.FC = () => {
             } else {
                 setSubmitStatus('error');
             }
+
         } catch (error) {
             console.error(error);
             setSubmitStatus('error');

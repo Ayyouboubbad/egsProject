@@ -2,6 +2,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import Products from './components/sections/Products';
+import SavingsCalculator from './components/sections/SavingsCalculator';
 import Services from './components/sections/Services';
 import ProductionProcess from './components/sections/ProductionProcess';
 import Gallery from './components/sections/Gallery';
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <SavingsCalculator />
         <Products />
         <Services />
         <ProductionProcess />

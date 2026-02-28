@@ -32,6 +32,7 @@ const Footer: React.FC = () => {
                         </h3>
                         <ul className="space-y-3">
                             <li><a href="#home" className="hover:text-brand-400 transition-colors flex items-center gap-2 relative group pl-4">الرئيسية</a></li>
+                            <li><a href="#calculator" className="hover:text-brand-400 transition-colors flex items-center gap-2 relative group pl-4">حاسبة التوفير</a></li>
                             <li><a href="#products" className="hover:text-brand-400 transition-colors flex items-center gap-2 relative group pl-4">المنتجات</a></li>
                             <li><a href="#services" className="hover:text-brand-400 transition-colors flex items-center gap-2 relative group pl-4">خدامتنا</a></li>
                             <li><a href="#production" className="hover:text-brand-400 transition-colors flex items-center gap-2 relative group pl-4">مراحل الإنتاج</a></li>
