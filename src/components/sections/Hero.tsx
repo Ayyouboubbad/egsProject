@@ -38,17 +38,17 @@ const Hero: React.FC = () => {
 
                     <div className="flex flex-wrap items-center gap-4">
                         <a
-                            href="#services"
+                            href="#products"
                             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-500/30"
                         >
-                            اكتشف خدماتنا
+                            قائمة المنتجات
                             <ArrowLeft size={20} className="animate-bounce-x" />
                         </a>
                         <a
                             href="#contact"
                             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold backdrop-blur-md transition-all border border-white/10 hover:border-white/30"
                         >
-                            تواصل معنا
+                            طلب تسعيرة (B2B)
                         </a>
                     </div>
                 </div>

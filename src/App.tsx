@@ -1,10 +1,9 @@
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
+import Products from './components/sections/Products';
 import Services from './components/sections/Services';
-import DidYouKnow from './components/sections/DidYouKnow';
 import ProductionProcess from './components/sections/ProductionProcess';
-import FarmTour from './components/sections/FarmTour';
 import Gallery from './components/sections/Gallery';
 import Contact from './components/sections/Contact';
 
@@ -14,10 +13,9 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Products />
         <Services />
-        <DidYouKnow />
         <ProductionProcess />
-        <FarmTour />
         <Gallery />
         <Contact />
       </main>

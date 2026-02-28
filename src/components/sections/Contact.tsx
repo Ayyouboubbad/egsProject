@@ -9,6 +9,7 @@ const schema = yup.object().shape({
     name: yup.string().required('الاسم مطلوب').min(2, 'الاسم يجب أن يكون أكثر من حرفين'),
     phone: yup.string().required('رقم الهاتف مطلوب').matches(/^[0-9+ ]+$/, 'رقم هاتف غير صالح'),
     email: yup.string().email('بريد إلكتروني غير صالح').required('البريد الإلكتروني مطلوب'),
+    subject: yup.string().required('الرجاء اختيار موضوع الرسالة'),
     message: yup.string().required('الرسالة مطلوبة').min(10, 'الرسالة يجب أن تحتوي على 10 أحرف على الأقل'),
 });
 
@@ -19,6 +20,9 @@ const Contact: React.FC = () => {
     const { register, handleSubmit, formState: { errors, isValid, isSubmitting }, reset } = useForm<FormData>({
         resolver: yupResolver(schema),
         mode: 'onTouched',
+        defaultValues: {
+            subject: 'استفسار تجاري / طلب عرض سعر'
+        }
     });
 
     const onSubmit = async (data: FormData) => {
@@ -34,9 +38,10 @@ const Contact: React.FC = () => {
                     "الاسم": data.name,
                     "البريد الإلكتروني": data.email,
                     "رقم الهاتف": data.phone,
+                    "الموضوع": data.subject,
                     "الرسالة": data.message,
                     "_replyto": data.email,
-                    "_subject": "رسالة جديدة من موقع شركة بيض الرحامنة"
+                    "_subject": `رسالة من الموقع: ${data.subject}`
                 })
             });
 
@@ -67,7 +72,7 @@ const Contact: React.FC = () => {
                         <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-brand-500 rounded-full"></span>
                     </h2>
                     <p className="text-lg text-gray-600 mt-6">
-                        نحن هنا للإجابة على جميع استفساراتكم. متواجدون على مدار 24 ساعة، طيلة أيام الأسبوع.
+                        سواء كنت تبحث عن توريد جملة لمشروعك، أو لديك استفسار، نحن هنا لمساعدتك.
                     </p>
                 </div>
 
@@ -122,8 +127,8 @@ const Contact: React.FC = () => {
 
                     {/* Contact Form */}
                     <div className="lg:w-2/3 bg-white p-8 md:p-12 rounded-[2rem] shadow-xl shadow-gray-900/5 border border-gray-100">
-                        <h3 className="text-3xl font-black text-gray-900 mb-2">أرسل لنا رسالة</h3>
-                        <p className="text-gray-500 mb-8 border-b border-gray-100 pb-8">استخدم النموذج أدناه لإرسال استفسارك مباشرة إلى قسم المبيعات لدينا.</p>
+                        <h3 className="text-3xl font-black text-gray-900 mb-2">طلب عرض سعر / استفسار</h3>
+                        <p className="text-gray-500 mb-8 border-b border-gray-100 pb-8">استخدم النموذج أدناه لإرسال طلبك مباشرة إلى قسم المبيعات لدينا، وسنقوم بالرد في أقرب وقت.</p>
 
                         {submitStatus === 'success' && (
                             <div className="mb-8 p-6 bg-green-50 rounded-2xl border-2 border-green-200 flex items-center gap-4 text-green-700 shadow-sm">
@@ -132,7 +137,7 @@ const Contact: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="font-black text-xl">تم الإرسال بنجاح!</p>
-                                    <p className="text-green-800 font-medium">لقد توصلنا برسالتك، سنتصل بك قريباً.</p>
+                                    <p className="text-green-800 font-medium">لقد توصلنا بطلبك، سيتواصل معك فريق المبيعات قريباً.</p>
                                 </div>
                             </div>
                         )}
@@ -153,13 +158,13 @@ const Contact: React.FC = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="text-right">
-                                    <label htmlFor="name" className="block text-base font-bold text-gray-800 mb-2">الاسم الكامل <span className="text-brand-500">*</span></label>
+                                    <label htmlFor="name" className="block text-base font-bold text-gray-800 mb-2">اسم الشركة / الاسم الشخصي <span className="text-brand-500">*</span></label>
                                     <input
                                         id="name"
                                         type="text"
                                         {...register('name')}
                                         className={`w-full px-5 py-4 rounded-xl border-2 ${errors.name ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50 hover:border-brand-300 focus:border-brand-500'} focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all text-gray-800 text-lg placeholder-gray-400`}
-                                        placeholder="محمد رحماني"
+                                        placeholder="شركة مطاعم الأمل / محمد رحماني"
                                     />
                                     {errors.name && <p className="mt-2 text-sm text-red-500 font-bold">{errors.name.message}</p>}
                                 </div>
@@ -178,27 +183,43 @@ const Contact: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="text-right">
-                                <label htmlFor="email" className="block text-base font-bold text-gray-800 mb-2">البريد الإلكتروني <span className="text-brand-500">*</span></label>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    {...register('email')}
-                                    className={`w-full px-5 py-4 rounded-xl border-2 ${errors.email ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50 hover:border-brand-300 focus:border-brand-500'} focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all text-gray-800 text-lg placeholder-gray-400 text-right`}
-                                    placeholder="example@email.com"
-                                    dir="ltr"
-                                />
-                                {errors.email && <p className="mt-2 text-sm text-red-500 font-bold text-right">{errors.email.message}</p>}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="text-right">
+                                    <label htmlFor="email" className="block text-base font-bold text-gray-800 mb-2">البريد الإلكتروني <span className="text-brand-500">*</span></label>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        {...register('email')}
+                                        className={`w-full px-5 py-4 rounded-xl border-2 ${errors.email ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50 hover:border-brand-300 focus:border-brand-500'} focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all text-gray-800 text-lg placeholder-gray-400 text-right`}
+                                        placeholder="contact@company.com"
+                                        dir="ltr"
+                                    />
+                                    {errors.email && <p className="mt-2 text-sm text-red-500 font-bold text-right">{errors.email.message}</p>}
+                                </div>
+
+                                <div className="text-right">
+                                    <label htmlFor="subject" className="block text-base font-bold text-gray-800 mb-2">الموضوع <span className="text-brand-500">*</span></label>
+                                    <select
+                                        id="subject"
+                                        {...register('subject')}
+                                        className={`w-full px-5 py-4 rounded-xl border-2 ${errors.subject ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50 hover:border-brand-300 focus:border-brand-500'} focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all text-gray-800 text-lg appearance-none cursor-pointer`}
+                                    >
+                                        <option value="استفسار تجاري / طلب عرض سعر">طلب عرض سعر (B2B)</option>
+                                        <option value="طلب توزيع / شراكة">طلب توزيع / شراكة</option>
+                                        <option value="استفسار وتواصل عام">استفسار عام</option>
+                                    </select>
+                                    {errors.subject && <p className="mt-2 text-sm text-red-500 font-bold text-right">{errors.subject.message}</p>}
+                                </div>
                             </div>
 
                             <div className="text-right">
-                                <label htmlFor="message" className="block text-base font-bold text-gray-800 mb-2">نص الرسالة <span className="text-brand-500">*</span></label>
+                                <label htmlFor="message" className="block text-base font-bold text-gray-800 mb-2">تفاصيل الطلب <span className="text-brand-500">*</span></label>
                                 <textarea
                                     id="message"
                                     rows={5}
                                     {...register('message')}
                                     className={`w-full px-5 py-4 rounded-xl border-2 ${errors.message ? 'border-red-500 bg-red-50/50' : 'border-gray-200 bg-gray-50 hover:border-brand-300 focus:border-brand-500'} focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all resize-none text-gray-800 text-lg placeholder-gray-400`}
-                                    placeholder="كيف يمكننا مساعدتك؟"
+                                    placeholder="يرجى ذكر الكميات المطلوبة أو أي تفاصيل أخرى..."
                                 ></textarea>
                                 {errors.message && <p className="mt-2 text-sm text-red-500 font-bold">{errors.message.message}</p>}
                             </div>
