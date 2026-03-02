@@ -1,11 +1,16 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Hero: React.FC = () => {
+    const { t, i18n } = useTranslation();
+    const isRTL = i18n.language === 'ar';
+    const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
+
     return (
         <section
             id="home"
-            className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gray-900 text-white"
+            className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
         >
             {/* Background Image & Overlay */}
             <div
@@ -14,26 +19,26 @@ const Hero: React.FC = () => {
                     backgroundImage: 'url("https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=2000&auto=format&fit=crop")',
                 }}
             >
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 to-gray-900/40"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-100/95 to-gray-100/60 dark:from-gray-900/95 dark:to-gray-900/40 transition-colors duration-300"></div>
             </div>
 
             {/* Content */}
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="max-w-3xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/20 border border-brand-500/30 text-brand-300 font-medium text-sm mb-6 backdrop-blur-sm">
-                        <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
-                        جودة، سرعة، أمانة
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 dark:bg-brand-900/30 border border-brand-200 dark:border-brand-500/30 text-brand-700 dark:text-brand-300 font-medium text-sm mb-6 backdrop-blur-sm">
+                        <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        {t('quality')}
                     </div>
 
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
-                        شركة بيــض <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-brand-500">
-                            الرحامنــة
+                        {t('hero_title')} <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-400 dark:from-brand-300 dark:to-brand-500">
+                            {t('hero_title_highlight')}
                         </span>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl text-balance leading-relaxed">
-                        أكثر من 30 سنة في انتاج البيض الاستهلاك. نفخر بتقديم أفضل جودة لكم.
+                    <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-10 max-w-2xl text-balance leading-relaxed">
+                        {t('hero_desc')}
                     </p>
 
                     <div className="flex flex-wrap items-center gap-4">
@@ -41,14 +46,14 @@ const Hero: React.FC = () => {
                             href="#products"
                             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-500/30"
                         >
-                            قائمة المنتجات
-                            <ArrowLeft size={20} className="animate-bounce-x" />
+                            {t('hero_cta1')}
+                            <ArrowIcon size={20} className={isRTL ? "animate-bounce-x" : "animate-bounce-x-reverse"} />
                         </a>
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold backdrop-blur-md transition-all border border-white/10 hover:border-white/30"
+                            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gray-900/10 hover:bg-gray-900/20 text-gray-900 border border-gray-900/10 hover:border-gray-900/20 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white font-bold backdrop-blur-md transition-all dark:border-white/10 dark:hover:border-white/30"
                         >
-                            طلب تسعيرة (B2B)
+                            {t('hero_cta2')}
                         </a>
                     </div>
                 </div>

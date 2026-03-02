@@ -1,29 +1,29 @@
-import { ShieldCheck, Truck, PackageCheck } from 'lucide-react';
+import { ShieldCheck, Truck, PackageCheck, type LucideIcon } from 'lucide-react';
 
 export interface Service {
     id: string;
     title: string;
     description: string;
-    icon: any;
+    icon: LucideIcon;
 }
 
 export const services: Service[] = [
     {
         id: 'quality',
-        title: 'جودة المنتوج',
-        description: 'تعتبر ضيعتكم من افضل الضيعات على الصعيد الدولي و الافريقي',
+        title: 'service_1_title',
+        description: 'service_1_desc',
         icon: ShieldCheck,
     },
     {
         id: 'delivery',
-        title: 'توصيل البضاعة',
-        description: 'تصلكم بضاعتكم اينما كنتم في جميع انحاء المغرب',
+        title: 'service_2_title',
+        description: 'service_2_desc',
         icon: Truck,
     },
     {
         id: 'receipt',
-        title: 'استلامكم المنتوج',
-        description: 'نحرص على استلامكم المنتوج',
+        title: 'service_3_title',
+        description: 'service_3_desc',
         icon: PackageCheck,
     },
 ];

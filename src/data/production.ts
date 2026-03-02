@@ -10,26 +10,26 @@ export interface ProductionStep {
 export const productionSteps: ProductionStep[] = [
     {
         id: 1,
-        title: "تربية الدواجن بعناية",
-        description: "نحرص على توفير بيئة صحية وآمنة وعلف طبيعي 100% لضمان إنتاج بيض عالي الجودة وخالي من الأمراض.",
+        title: "prod_step_1_title",
+        description: "prod_step_1_desc",
         icon: Bird
     },
     {
         id: 2,
-        title: "الفرز ومراقبة الجودة",
-        description: "يمر البيض عبر أحدث أجهزة الفرز والتفتيش للتأكد من سلامة القشرة ومطابقتها لأقصى المعايير الصحية.",
+        title: "prod_step_2_title",
+        description: "prod_step_2_desc",
         icon: ShieldCheck
     },
     {
         id: 3,
-        title: "التعبئة والتغليف الآلي",
-        description: "تتم عملية التعبئة بشكل آلي لضمان عدم تعرض البيض للتلوث، بحيث يوضع في صواني مخصصة تحافظ على سلامته.",
+        title: "prod_step_3_title",
+        description: "prod_step_3_desc",
         icon: Package
     },
     {
         id: 4,
-        title: "التوزيع السريع للأسواق",
-        description: "أسطول شاحناتنا يضمن وصول البيض طازجاً من المزرعة إلى نقاط البيع الكبرى والأسواق في أسرع وقت.",
+        title: "prod_step_4_title",
+        description: "prod_step_4_desc",
         icon: Truck
     }
 ];
