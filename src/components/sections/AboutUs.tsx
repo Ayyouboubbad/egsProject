@@ -1,99 +1,98 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
 
 const AboutUs: React.FC = () => {
     const { t } = useTranslation();
 
-    const features = [
-        t('about_feat_1', 'جودة استثنائية (Exceptional Quality)'),
-        t('about_feat_2', 'توزيع وطني (National Distribution)'),
-        t('about_feat_3', 'أمانة وثقة (Honesty and Trust)')
-    ];
-
     return (
-        <section id="about" className="py-24 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 transition-colors">
+        <section id="about" className="py-24 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="flex flex-col lg:flex-row items-center gap-16">
-                    {/* Image Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
-                        className="w-full lg:w-1/2 relative"
-                    >
-                        {/* Decorative Background blob */}
-                        <div className="absolute -top-10 -left-10 w-full h-full bg-brand-100/50 dark:bg-brand-900/20 rounded-[3rem] -z-10 transform -rotate-3"></div>
 
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 bg-gray-100 dark:bg-gray-700 aspect-square max-h-[500px] flex items-center justify-center">
-                            {/* Using the public/US.png requested by the user */}
-                            <img
-                                src="/US.png"
-                                alt="About Us - Rhamna Eggs"
-                                className="w-full h-full object-cover"
-                                onError={(e) => {
-                                    // Fallback if image doesn't load
-                                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1590082871808-72534e402868?q=80&w=1000&auto=format&fit=crop';
-                                }}
-                            />
+                {/* Main Card */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-gray-100 dark:border-gray-700"
+                >
 
-                            {/* Experience Badge */}
-                            <div className="absolute -bottom-6 -right-6 lg:bottom-8 lg:-right-8 bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 flex flex-col items-center">
-                                <span className="text-4xl font-black font-sans text-brand-500">{t('about_years')}</span>
-                                <span className="text-sm font-bold font-sans text-gray-600 dark:text-gray-300 whitespace-nowrap">{t('about_years_label')}</span>
+                    {/* Left Column (Text Content) */}
+                    <div className="w-full lg:w-[60%] p-8 md:p-12 lg:p-16 flex flex-col justify-between">
+                        <div>
+                            {/* Title */}
+                            <div className="mb-10 inline-block relative">
+                                <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
+                                    {t('about_story_title', 'قصة النجاح')}
+                                </h2>
+                                <span className="absolute -bottom-2 md:-bottom-3 rtl:right-0 ltr:left-0 h-1.5 bg-brand-500 rounded-full w-24"></span>
+                            </div>
+
+                            {/* Quote */}
+                            <div className="mb-8 px-6 rtl:pr-6 rtl:pl-0 ltr:pl-6 ltr:pr-0 border-brand-500 rtl:border-r-4 ltr:border-l-4">
+                                <p className="text-xl md:text-2xl font-bold text-brand-600 dark:text-brand-400 leading-relaxed">
+                                    {t('about_story_quote', '"مسيرة من العمل الجاد والشغف المستمر لبناء منظومة متكاملة لإنتاج البيض في المغرب"')}
+                                </p>
+                            </div>
+
+                            {/* Paragraphs */}
+                            <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed font-medium md:text-lg">
+                                <p>{t('about_story_p1')}</p>
+                                <p>{t('about_story_p2')}</p>
+                                <p>{t('about_story_p3')}</p>
                             </div>
                         </div>
-                    </motion.div>
 
-                    {/* Text Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="w-full lg:w-1/2"
-                    >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 dark:bg-brand-900/30 border border-brand-100 dark:border-brand-500/30 text-brand-600 dark:text-brand-400 font-medium text-sm mb-6">
-                            <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                            {t('about')}
+                        {/* Bottom Info Row */}
+                        <div className="mt-12 flex items-center justify-between pt-8 border-t border-gray-100 dark:border-gray-700">
+                            {/* Slogan (Appears on Right in RTL due to flex order) */}
+                            <div className="text-start">
+                                <p className="text-gray-400 dark:text-gray-500 text-sm mb-1">{t('about_slogan_sub', 'تأسست لتكون الأفضل')}</p>
+                                <p className="text-brand-500 font-black tracking-widest uppercase">{t('about_slogan_main', 'OEUFS REHAMNA')}</p>
+                            </div>
+
+                            {/* AZ Badge (Appears on Left in RTL due to flex order) */}
+                            <div className="w-14 h-14 rounded-full bg-brand-50 flex shrink-0 items-center justify-center text-brand-600 font-bold text-xl shadow-inner">
+                                AZ
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column (Dark Founder Box) */}
+                    <div className="w-full lg:w-[40%] bg-[#0f1423] relative flex flex-col items-end justify-end min-h-[400px] overflow-hidden">
+
+                        {/* Founder Image Overlay */}
+                        <div className="absolute inset-0 z-0 overflow-hidden">
+                            <img
+                                src="/US.png"
+                                alt="Abdellatif Zaim"
+                                className="w-full h-full object-cover object-top opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-700"
+                            />
+                            {/* Gradient to make bottom text readable */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#0f1423] via-[#0f1423]/40 to-transparent"></div>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
-                            {t('about_title')}
-                        </h2>
-
-                        <h3 className="text-2xl text-brand-500 font-bold mb-6">
-                            {t('about_subtitle')}
-                        </h3>
-
-                        <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-                            <p className="font-medium">
-                                {t('about_desc_1')}
-                            </p>
-                            <p>
-                                {t('about_desc_2')}
-                            </p>
+                        {/* Faint 'Founder' watermark top right (LTR) top left (RTL) */}
+                        <div className="absolute top-4 rtl:left-4 ltr:right-4 text-white/10 font-black text-6xl select-none z-10">
+                            Founder
                         </div>
 
-                        <ul className="space-y-4 mb-10">
-                            {features.map((feature, idx) => (
-                                <li key={idx} className="flex items-center gap-3 text-gray-800 dark:text-gray-200 font-bold text-lg">
-                                    <CheckCircle2 className="text-brand-500 flex-shrink-0" size={24} />
-                                    <span>{feature}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        {/* Bottom Text */}
+                        <div className="w-full rtl:text-right ltr:text-left mt-auto z-10 flex flex-col rtl:items-end ltr:items-start p-8 md:p-12">
+                            <span className="inline-block bg-[#825e1c] text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-4">
+                                • {t('about_founder_role', 'المؤسس والمدير العام')}
+                            </span>
+                            <h3 className="text-white text-3xl md:text-4xl font-black mb-2">
+                                {t('about_founder_name_ar', 'السيد عبد اللطيف زعيم')}
+                            </h3>
+                            <p className="text-gray-400 font-medium tracking-wide">
+                                {t('about_founder_name_en', 'M. Abdellatif Zaim')}
+                            </p>
+                        </div>
+                    </div>
 
-                        <a
-                            href="#products"
-                            className="inline-flex items-center justify-center bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 font-bold px-8 py-4 rounded-xl shadow-lg transition-transform active:scale-95"
-                        >
-                            {t('hero_cta1')}
-                        </a>
-                    </motion.div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

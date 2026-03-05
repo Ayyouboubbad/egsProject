@@ -2,6 +2,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import AboutUs from './components/sections/AboutUs';
+import Timeline from './components/sections/Timeline';
 import Products from './components/sections/Products';
 import SavingsCalculator from './components/sections/SavingsCalculator';
 import Services from './components/sections/Services';
@@ -22,6 +23,7 @@ function App() {
         <ProductionProcess />
         <Gallery />
         <AboutUs />
+        <Timeline />
         <Contact />
         <Patronage />
       </main>

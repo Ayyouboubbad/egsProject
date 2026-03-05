@@ -6,11 +6,11 @@ const Gallery: React.FC = () => {
     const { t } = useTranslation();
     const images = [
         '/box-2.png',
-        '/box-3.png',
+        '/factory.png',
         '/boxes.png',
-        '/egg-boxes.jpeg',
+        '/stock.png',
         '/box-4.jpeg',
-        '/box-5.jpeg',
+        '/pack.png',
     ];
 
     return (
