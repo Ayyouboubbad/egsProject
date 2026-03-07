@@ -96,15 +96,15 @@ const Timeline: React.FC = () => {
                                     </div>
 
                                     {/* --- MOBILE LAYOUT --- */}
-                                    <div className="md:hidden w-full ms-20 relative pe-4">
-                                        <div className="bg-white dark:bg-gray-800/80 p-6 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-xl shadow-gray-200/50 dark:shadow-none hover:shadow-2xl transition-all relative">
-                                            <div className={`absolute -top-3 end-6 px-3 py-1 rounded-full text-white font-black text-sm shadow-md ${item.color}`}>
+                                    <div className="md:hidden w-full ps-[4.5rem] sm:ps-20 pe-4 relative">
+                                        <div className="bg-white dark:bg-gray-800/80 p-5 sm:p-6 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-xl shadow-gray-200/50 dark:shadow-none hover:shadow-2xl transition-all relative">
+                                            <div className={`absolute -top-3 end-4 sm:end-6 px-3 py-1 rounded-full text-white font-black text-xs sm:text-sm shadow-md ${item.color}`}>
                                                 {item.year}
                                             </div>
-                                            <h3 className={`text-lg font-black mb-2 mt-2 ${item.textColor} flex items-center gap-2`}>
+                                            <h3 className={`text-base sm:text-lg font-black mb-2 mt-2 ${item.textColor} flex items-center gap-2`}>
                                                 {item.title}
                                             </h3>
-                                            <p className="text-gray-500 dark:text-gray-400 font-medium leading-relaxed text-sm">
+                                            <p className="text-gray-500 dark:text-gray-400 font-medium leading-relaxed text-xs sm:text-sm">
                                                 {item.desc}
                                             </p>
                                         </div>

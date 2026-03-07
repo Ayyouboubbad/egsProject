@@ -161,7 +161,8 @@ const resources = {
             "contact_form_title": "Send us your message",
             "contact_form_desc": "We will contact you as soon as possible",
             "whatsapp": "WhatsApp",
-            "whatsapp_desc": "Contact us directly via WhatsApp"
+            "whatsapp_desc": "Contact us directly via WhatsApp",
+            "brand_name": "Zaime Eggs"
         }
     },
     fr: {
@@ -321,7 +322,8 @@ const resources = {
             "contact_form_title": "Envoyez-nous votre message",
             "contact_form_desc": "Nous vous contacterons dans les plus brefs délais",
             "whatsapp": "WhatsApp",
-            "whatsapp_desc": "Contactez-nous directement via WhatsApp"
+            "whatsapp_desc": "Contactez-nous directement via WhatsApp",
+            "brand_name": "Oeufs Zaime"
         }
     },
     ar: {
@@ -481,7 +483,8 @@ const resources = {
             "contact_form_title": "أرسل لنا رسالتك",
             "contact_form_desc": "سنتواصل معك في أقرب وقت",
             "whatsapp": "WhatsApp",
-            "whatsapp_desc": "تواصل معنا مباشرة عبر واتساب"
+            "whatsapp_desc": "تواصل معنا مباشرة عبر واتساب",
+            "brand_name": "شركة بيــض الرحامنــة"
         }
     }
 };

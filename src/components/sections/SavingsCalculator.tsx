@@ -117,7 +117,7 @@ const SavingsCalculator: React.FC = () => {
                     </div>
 
                     {/* Output Area */}
-                    <div className="lg:w-1/2 bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 p-8 md:p-12 text-gray-900 dark:text-white relative overflow-hidden flex flex-col justify-center transition-colors">
+                    <div className="lg:w-1/2 bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 p-6 sm:p-8 md:p-12 text-gray-900 dark:text-white relative overflow-hidden flex flex-col justify-center transition-colors">
                         <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-500/10 dark:bg-brand-500/20 rounded-full blur-3xl"></div>
 
                         <div className="relative z-10">
@@ -126,8 +126,8 @@ const SavingsCalculator: React.FC = () => {
                                 <h3 className="text-xl font-medium tracking-wide text-gray-800 dark:text-gray-200">{t('calc_result_title')}</h3>
                             </div>
 
-                            <div className="space-y-8">
-                                <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-sm dark:shadow-none">
+                            <div className="space-y-6 sm:space-y-8">
+                                <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-md shadow-sm dark:shadow-none">
                                     <p className="text-gray-500 dark:text-gray-400 font-medium mb-2 text-sm">{t('calc_monthly')}</p>
                                     <div className="flex items-baseline gap-2" dir="ltr">
                                         <span className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">{monthlySavings.toLocaleString()}</span>
@@ -135,17 +135,17 @@ const SavingsCalculator: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 rounded-2xl p-6 backdrop-blur-md shadow-[0_0_30px_rgba(245,158,11,0.15)] relative overflow-hidden group">
+                                <div className="bg-brand-50 dark:bg-brand-500/10 border border-brand-200 dark:border-brand-500/20 rounded-2xl p-5 sm:p-6 backdrop-blur-md shadow-[0_0_30px_rgba(245,158,11,0.15)] relative overflow-hidden group">
                                     <div className="absolute inset-0 bg-gradient-to-r from-brand-500/0 via-brand-500/10 to-brand-500/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                                    <p className="text-brand-700 dark:text-brand-100 font-medium mb-2">{t('calc_yearly')}</p>
+                                    <p className="text-brand-700 dark:text-brand-100 font-medium mb-3 text-sm sm:text-base leading-snug">{t('calc_yearly')}</p>
                                     <div className="flex items-baseline gap-2" dir="ltr">
-                                        <span className="text-5xl md:text-6xl font-black text-brand-600 dark:text-brand-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.2)] dark:drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">{yearlySavings.toLocaleString()}</span>
-                                        <span className="text-brand-600 dark:text-brand-400 font-bold text-xl">MAD</span>
+                                        <span className="text-4xl sm:text-5xl md:text-6xl font-black text-brand-600 dark:text-brand-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.2)] dark:drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">{yearlySavings.toLocaleString()}</span>
+                                        <span className="text-brand-600 dark:text-brand-400 font-bold text-lg sm:text-xl">MAD</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="mt-10">
+                            <div className="mt-8 sm:mt-10">
                                 <a
                                     href="#contact"
                                     onClick={(e) => {
@@ -153,13 +153,12 @@ const SavingsCalculator: React.FC = () => {
                                         if (contactSection) {
                                             e.preventDefault();
                                             contactSection.scrollIntoView({ behavior: 'smooth' });
-                                            // Provide visual feedback or auto fill later
                                         }
                                     }}
-                                    className="w-full inline-flex items-center justify-center gap-3 bg-brand-500 hover:bg-brand-400 text-gray-900 font-black text-xl py-5 rounded-xl transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-brand-500/20"
+                                    className="w-full flex items-center justify-center gap-2 sm:gap-3 bg-brand-500 hover:bg-brand-400 text-gray-900 font-black text-sm sm:text-base md:text-lg lg:text-xl py-4 sm:py-5 px-4 sm:px-6 rounded-xl transition-all hover:scale-[1.02] active:scale-95 shadow-xl shadow-brand-500/20 text-center leading-snug"
                                 >
-                                    {t('calc_cta')}
-                                    <ArrowIcon size={24} className={isRTL ? "animate-bounce-x" : "animate-bounce-x-reverse"} />
+                                    <span>{t('calc_cta')}</span>
+                                    <ArrowIcon size={20} className={`shrink-0 ${isRTL ? "animate-bounce-x" : "animate-bounce-x-reverse"}`} />
                                 </a>
                             </div>
                         </div>

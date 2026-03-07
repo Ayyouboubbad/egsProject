@@ -8,8 +8,8 @@ const Products: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <section id="products" className="py-24 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors">
-            <div className="container mx-auto px-4 md:px-6">
+        <section id="products" className="py-24 bg-gray-50 dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors overflow-hidden">
+            <div className="container mx-auto px-4 md:px-6 relative">
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,9 @@ const Products: React.FC = () => {
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src={product.imageUrl}
-                                    alt={product.name}
+                                    alt={`${t(product.name)} - بيض عالي الجودة Oeufs Zaime Morocco`}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>

@@ -15,6 +15,8 @@ const Hero: React.FC = () => {
             {/* Background Image & Overlay */}
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
+                role="img"
+                aria-label="شركة بيض الرحامنة - انتاج البيض الاستهلاك في المغرب - Oeufs Zaime Premium Quality"
                 style={{
                     backgroundImage: 'url("https://images.unsplash.com/photo-1587486913049-53fc88980cfc?q=80&w=2000&auto=format&fit=crop")',
                 }}

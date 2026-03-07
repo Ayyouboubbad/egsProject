@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eggs-zaime.vercel.app/sitemap.xml

@@ -79,9 +79,9 @@ const Header: React.FC = () => {
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 {/* Logo */}
                 <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="flex items-center gap-2 group">
-                    <img src="/zaaim-logo.png" alt="Oeufs Zaime Logo" className="w-10 h-10 object-contain drop-shadow-md rounded-full bg-white/10 p-0.5" />
+                    <img src="/Oeufs-Zaime.png" width="40" height="40" alt="Oeufs Zaime Logo" className="w-10 h-10 object-contain drop-shadow-md rounded-full bg-white/10 p-0.5" />
                     <span className="font-bold text-xl md:text-2xl transition-colors text-gray-900 dark:text-white drop-shadow-sm">
-                        شركة بيــض الرحامنــة
+                        {t('brand_name')}
                     </span>
                 </a>
 

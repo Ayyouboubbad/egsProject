@@ -13,9 +13,9 @@ const Footer: React.FC = () => {
                     {/* Brand */}
                     <div className="col-span-1 lg:col-span-1 border-b md:border-b-0 border-gray-800 pb-8 md:pb-0">
                         <div className="flex items-center gap-2 mb-6">
-                            <img src="/zaaim-logo.png" alt="Oeufs Zaime Logo" className="w-12 h-12 object-contain rounded-full bg-white/10 p-1" />
+                            <img src="/Oeufs-Zaime.png" width="48" height="48" loading="lazy" decoding="async" alt="Oeufs Zaime Logo" className="w-12 h-12 object-contain rounded-full bg-white/10 p-1" />
                             <span className="font-bold text-2xl text-white">
-                                {t('about_title', 'شركة بيــض الرحامنــة')}
+                                {t('brand_name')}
                             </span>
                         </div>
                         <p className="text-gray-400 leading-relaxed text-sm">
@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
                     </p>
                     <div className="flex items-center gap-4 justify-center">
                         <span className="text-xs text-brand-600 font-medium px-3 py-1 bg-brand-600/10 rounded-full border border-brand-600/20">
-                            Oeufs Zaime SPA
+                            Oeufs Zaime
                         </span>
                     </div>
                 </div>

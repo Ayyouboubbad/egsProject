@@ -45,9 +45,10 @@ const Gallery: React.FC = () => {
                         >
                             <img
                                 src={src}
-                                alt={`Gallery image ${idx + 1}`}
+                                alt={`إنتاج البيض في ضيعات الرحامنة المغرب - Oeufs Zaime Gallery Image ${idx + 1}`}
                                 className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                                 loading="lazy"
+                                decoding="async"
                             />
                             <div className="absolute inset-0 bg-brand-600/0 group-hover:bg-brand-600/20 transition-colors duration-500"></div>
                         </motion.div>
