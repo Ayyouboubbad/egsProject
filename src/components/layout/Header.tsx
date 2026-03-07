@@ -10,45 +10,40 @@ const Header: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
 
-    // Handle scroll background
+    // Handle scroll background and active sections (dynamic for lazy-loaded components)
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
-    // Intersection Observer for active sections
-    useEffect(() => {
-        const observerOptions = {
-            root: null,
-            rootMargin: '-80px 0px -60% 0px', // Adjusted to trigger when section is near top
-            threshold: 0,
-        };
+            // Dynamically query sections to handle lazy-loaded components
+            const sections = document.querySelectorAll('section[id]');
+            let current = 'home';
 
-        const observerCallback: IntersectionObserverCallback = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    setActiveSection(id);
-                    // Update URL path without the hash
-                    const newPath = id === 'home' ? '/' : `/${id}`;
-                    window.history.replaceState(null, '', newPath);
+            sections.forEach((section) => {
+                const sectionTop = (section as HTMLElement).offsetTop;
+                if (window.scrollY >= sectionTop - 120) {
+                    current = section.id;
                 }
+            });
+
+            setActiveSection((prev) => {
+                if (prev !== current) {
+                    // Update URL path without the hash
+                    const newPath = current === 'home' ? '/' : `/${current}`;
+                    if (window.location.pathname !== newPath) {
+                        window.history.replaceState(null, '', newPath);
+                    }
+                    return current;
+                }
+                return prev;
             });
         };
 
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        window.addEventListener('scroll', handleScroll);
+        // Delay initial check slightly to allow lazy components to mount if already scrolled
+        setTimeout(handleScroll, 100);
 
-        // Observe all sections
-        const sections = document.querySelectorAll('section[id], div[id="home"]');
-        sections.forEach((section) => observer.observe(section));
-
-        return () => {
-            sections.forEach((section) => observer.unobserve(section));
-            observer.disconnect();
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const navLinks = [
