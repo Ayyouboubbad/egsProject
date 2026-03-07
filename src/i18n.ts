@@ -484,7 +484,7 @@ const resources = {
             "contact_form_desc": "سنتواصل معك في أقرب وقت",
             "whatsapp": "WhatsApp",
             "whatsapp_desc": "تواصل معنا مباشرة عبر واتساب",
-            "brand_name": "شركة بيــض الرحامنــة"
+            "brand_name": "بيض الرحامنة"
         }
     }
 };
